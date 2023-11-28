@@ -30,6 +30,7 @@ const formEvents = () => {
     }
 
     // FIXME: ADD CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN AUTHOR
+   
     if (e.target.id.includes('submit-author')) {
       const payload = {
         title: document.querySelector('#title').value,
@@ -39,8 +40,10 @@ const formEvents = () => {
         author_id: document.querySelector('#author_id').value,
         sale: document.querySelector('#sale').checked,
       };
+    
       createBook(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
+    
         updateBook(patchPayload).then(() => {
           getBooks().then(showBooks);
         });
