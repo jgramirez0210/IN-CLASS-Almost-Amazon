@@ -1,9 +1,10 @@
-import client from '../utils/client';
+// import client from '../utils/client';
 
-const endpoint = client.databaseURL;
+// const endpoint = client.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
-const getAuthors = () => new Promise((resolve, reject) => {
+const getAuthors = () => {};
+const getBooks = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json`, {
     method: 'GET',
     headers: {

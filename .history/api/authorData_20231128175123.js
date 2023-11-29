@@ -1,19 +1,9 @@
-import client from '../utils/client';
+// import client from '../utils/client';
 
-const endpoint = client.databaseURL;
+// const endpoint = client.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
-const getAuthors = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books.json`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
-});
+const getAuthors = () => {};
 
 // FIXME: CREATE AUTHOR
 const createAuthor = () => {};

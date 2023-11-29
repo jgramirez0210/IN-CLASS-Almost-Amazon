@@ -1,6 +1,4 @@
-import { deleteBook, getBooks } from '../api/bookData';
-import { showBooks } from '../pages/books';
-
+import { deleteBook, getBooks } from '../helpers/data/bookData';
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // TODO: CLICK EVENT FOR DELETING A BOOK

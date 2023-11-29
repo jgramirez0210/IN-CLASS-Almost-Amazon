@@ -3,7 +3,6 @@ import { getBooks, booksOnSale } from '../api/bookData';
 import { showBooks } from '../pages/books';
 import { getAuthors } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
-
 // navigation events
 const navigationEvents = () => {
   // LOGOUT BUTTON

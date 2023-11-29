@@ -4,6 +4,7 @@ import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
 import navigationEvents from '../events/navigationEvents';
+import viewBooks from '../pages/viewBook';
 import { getBooks } from '../api/bookData';
 import { showBooks } from '../pages/books';
 
