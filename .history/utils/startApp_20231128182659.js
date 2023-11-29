@@ -4,9 +4,9 @@ import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
 import navigationEvents from '../events/navigationEvents';
-import { getBooks } from '../api/bookData';
-import { showBooks } from '../pages/books';
-
+import viewBooks from '../pages/viewBook';
+import { getBooks } from './data/bookData';
+i
 
 const startApp = () => {
   domBuilder(); // BUILD THE DOM

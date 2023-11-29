@@ -4,11 +4,12 @@ const endpoint = client.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
 const getAuthors = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/authors.json`, {
+  fetch(`${endpoint}/books.json`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
-    },
+      'Content-Type': 'application/json',
+
+     },
   })
     .then((response) => response.json())
     .then((data) => resolve(Object.values(data)))
