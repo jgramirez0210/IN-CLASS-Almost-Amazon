@@ -7,6 +7,7 @@ import navigationEvents from '../events/navigationEvents';
 import { getBooks } from '../api/bookData';
 import { showBooks } from '../pages/books';
 
+
 const startApp = () => {
   domBuilder(); // BUILD THE DOM
   domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
