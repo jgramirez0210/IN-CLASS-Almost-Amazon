@@ -1,5 +1,5 @@
 import {
-  deleteAuthor, getAuthors, getSingleAuthor, updateAuthor, createAuthor
+  deleteAuthor, getAuthorBooks, getAuthors, getSingleAuthor
 }
   from '../api/authorData';
 import { deleteBook, getBooks, getSingleBook } from '../api/bookData';
@@ -8,7 +8,7 @@ import { showBooks } from '../pages/books';
 import addBookForm from '../components/forms/addBookForm';
 import addAuthorForm from '../components/forms/addAuthorForm';
 import viewBook from '../pages/viewBook';
-import getBookDetails from '../api/mergedData';
+import { getBookDetails } from '../api/mergedData';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -32,7 +32,6 @@ const domEvents = (user) => {
       const [, firebaseKey] = e.target.id.split('--');
 
       getSingleBook(firebaseKey).then((bookObj) => addBookForm(bookObj));
-      // getSingleBook(firebaseKey).then(addBookForm); // using the callback method
     }
     // TODO: CLICK EVENT FOR VIEW BOOK DETAILS
 
@@ -49,36 +48,26 @@ const domEvents = (user) => {
     if (e.target.id.includes('add-author')) {
       addAuthorForm();
     }
+
     if (e.target.id.includes('update-author')) {
       const [, firebaseKey] = e.target.id.split('--');
-
-      getSingleAuthor(firebaseKey).then((authorObj) => addAuthorForm(authorObj));
-    }
-    if (e.target.id.includes('update-author')) {
-      const [, firebaseKey] = e.target.id.split('--');
-
-      // getSingleBook(firebaseKey).then((bookObj) => addBookForm(bookObj));
-      getSingleBook(firebaseKey).then(addBookForm); // using the callback method
-    }
-    if (e.target.id.includes('submit-author')) {
-      const payload = {
-        email: document.querySelector('#email').value,
-        first_name: document.querySelector('#first_name').value,
-        last_name: document.querySelector('#last_name').value,
-      };
-      createAuthor(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-
-        updateAuthor(patchPayload).then(() => {
-          getAuthors().then(showAuthors);
-        });
+      getSingleAuthor(firebaseKey).then((authorObj) => {
+        console.warn('Author object:', authorObj);
+        addAuthorForm(authorObj);
       });
     }
+
     // FIXME: ADD CLICK EVENT FOR EDITING AN AUTHOR
     if (e.target.id.includes('view-book-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
 
       getBookDetails(firebaseKey).then(viewBook);
+    }
+
+    if (e.target.id.includes('view-author-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getAuthorBooks(firebaseKey).then(showAuthors);
     }
   });
 };
