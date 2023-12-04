@@ -4,20 +4,20 @@ import { showBooks } from '../pages/books';
 import { getAuthors } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
 // navigation events
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    booksOnSale().then(showBooks);
+    booksOnSale(user.uid).then(showBooks);
     console.warn('CLICKED SALE BOOKS');
   });
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
-    getBooks().then(showBooks);
+    getBooks(user.uid).then(showBooks);
     console.warn('CLICKED ALL BOOKS');
   });
 
