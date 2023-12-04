@@ -27,6 +27,7 @@ const showAuthors = (array) => {
       </div>
     </div>
     `;
+    console.warn(`delete-author-btn--${item.firebaseKey}`);
   });
   renderToDOM('#store', domString);
 };
