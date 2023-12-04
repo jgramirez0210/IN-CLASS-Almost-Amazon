@@ -2,6 +2,7 @@ import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
 const viewBook = (obj) => {
+  console.warn('Received object in viewBook:', obj);
   clearDom();
 
   const domString = `
